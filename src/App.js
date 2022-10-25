@@ -86,9 +86,9 @@ function App() {
         </div>
       </div>
 
-      <h3 style={{ color: "white", fontWeight: "light", textAlign: "center" }}>
+      {/* <h3 style={{ color: "white", fontWeight: "light", textAlign: "center" }}>
         <i>- amit jalal</i>
-      </h3>
+      </h3> */}
     </>
   );
 }
