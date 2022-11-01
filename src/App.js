@@ -6,7 +6,22 @@ function App() {
 
   const clickHandler = (e) => {
     console.log(e.target.value);
+    // console.log(result.includes("//"));
     setResult(result.concat(e.target.value));
+    if (
+      result.includes("//") ||
+      result.includes("++-") ||
+      result.includes("--+") ||
+      result.includes("+++") ||
+      result.includes("---") ||
+      result.includes("**")
+    )
+      setResult("Invalid");
+
+    if (result === "Invalid" || result === "Infinity")
+      setResult(e.target.value);
+
+    if (result === "0") setResult(e.target.value);
   };
 
   const clearDisplay = () => {
@@ -14,7 +29,14 @@ function App() {
   };
 
   const calculate = () => {
-    setResult(eval(result).toString());
+    try {
+      setResult(eval(result).toString());
+    } catch (error) {
+      if (error) {
+        setResult("Invalid");
+      }
+      // console.log(error);
+    }
   };
 
   return (
@@ -86,9 +108,15 @@ function App() {
         </div>
       </div>
 
-      {/* <h3 style={{ color: "white", fontWeight: "light", textAlign: "center" }}>
-        <i>- amit jalal</i>
-      </h3> */}
+      <h3
+        style={{
+          color: "whitesmoke",
+          fontWeight: "light",
+          textAlign: "center",
+        }}
+      >
+        REACT Calculator App
+      </h3>
     </>
   );
 }
